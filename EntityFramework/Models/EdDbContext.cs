@@ -9,10 +9,13 @@ namespace EntityFramework.Models
 {
     public partial class EdDbContext : DbContext
     {
+        //default constructor.  Must have this.
         public EdDbContext()
         {
         }
 
+        //new constructor with DbContextOptions <of type DbContext class name>
+        //parameter that must be passed to the base class.
         public EdDbContext(DbContextOptions<EdDbContext> options)
             : base(options)
         {
