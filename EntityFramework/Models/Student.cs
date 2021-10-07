@@ -7,6 +7,12 @@ namespace EntityFramework.Models
 {
     public partial class Student
     {
+        public override string ToString()
+        {
+            return $"{Firstname} {Lastname} | {StateCode} | {Sat}/{Gpa} | " +
+                $"{(MajorId == null ? "Undecided" : Major.Description)}";
+        }
+
         public Student()
         {
             StudentClasses = new HashSet<StudentClass>();

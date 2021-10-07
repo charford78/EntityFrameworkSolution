@@ -1,4 +1,5 @@
 ﻿using EntityFramework.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace EntityFramework.Controllers
         }
         public List<Student> GetAll()
         {
-            return _context.Students.ToList();
+            return _context.Students
+                            .Include(x => x.Major)
+                            .ToList();
         }
         public Student GetbyPk(int Id)
         {

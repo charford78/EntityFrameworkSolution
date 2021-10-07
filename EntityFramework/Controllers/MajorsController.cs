@@ -1,4 +1,5 @@
 ﻿using EntityFramework.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +19,14 @@ namespace EntityFramework.Controllers
             _context = new EdDbContext();
         }
 
-        public List<Major> GetAll()
+        public async Task<List<Major>> GetAll()
         {
             //have to identify which collection we are working with (i.e. Majors here)
-            return _context.Majors.ToList();
+            return await _context.Majors.ToListAsync();
         }
-        public Major GetbyPk(int Id)
+        public async Task<Major> GetbyPk(int Id)
         {
-            return _context.Majors.Find(Id);
+            return await _context.Majors.FindAsync(Id);
         }
         public Major GetbyCode(string Code)
         {
