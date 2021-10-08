@@ -65,7 +65,5 @@ namespace EntityFramework.Controllers
             _context.SaveChanges();
             return true;
         }
-
-
     }
 }
